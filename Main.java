@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 
 class Main {  
   public static void main(String[] args) {    
@@ -5,16 +6,34 @@ class Main {
     student1.setName("Arnold Spielberg");    
     student1.setGPA(4.0);    
     student1.setMajor("Electrical Engineering");
-    print();
+    student1.print();
+
+    Student student2 = new Student();
+    student2.setName("Sam Hunkler");
+    student2.setGPA(4.3);
+    student2.setMajor("Accounting");
+    student2.print();
+
+   ArrayList<Double> averageGPA = new ArrayList<Double>();
+   averageGPA.add(student1.getGPA());
+   averageGPA.add(student2.getGPA());
+   double sum = 0;
+   int studentCount = 0;
+   for (int i = 0; i < averageGPA.size();i++){
+     sum = averageGPA.get(i) + sum;
+     studentCount++;
+   }
+
+  sum = sum/studentCount;
+  System.out.println("The average GPA is " + sum);
   }
-  
 }
+
   class Student {
   String name;  
   double gpa;  
   String major;  
   
-
   String getName() {    
     return name;  
     }  
@@ -32,11 +51,10 @@ class Main {
     }  
   void setMajor(String theMajor) {   
     major = theMajor;  
-    } 
-  static void print() {
-    System.out.Println("The Student's Name is" + student1.name);
-    System.out.printLn("The Student's GPA is" + student1.GPA);
-    System.out.Println("The Student's Major is" + student1.Major);
+    }
+  void print() {
+    System.out.println("The Student's Name is " + name);
+    System.out.println("The Student's GPA is " + gpa);
+    System.out.println("The Student's Major is " + major);
   }
-}
-}
+  } 
